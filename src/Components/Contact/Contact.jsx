@@ -5,6 +5,8 @@ const Contact = () => {
     const [data, setData] = useState({ name: "", email: "", message: "" })
     const [date, setDate] = useState(new Date())
 
+    const [disable,setDisable]=useState(0)
+
 
     const handleChange = (e) => {
         const name = e.target.name;
@@ -14,10 +16,14 @@ const Contact = () => {
     }
 
     const handleSubmit = (e) => {
+  
         e.preventDefault()
         console.log(data);
+        setDisable(1)
 
     }
+
+ 
 
 
     return (
@@ -46,7 +52,7 @@ const Contact = () => {
 
 
                         <div className="mb-3">
-                            <button type="button submit" class="btn btn-primary" >Submit </button>
+                            <button type="button submit" class="btn btn-primary" disabled={disable} >Submit </button>
                         </div>
 
 
